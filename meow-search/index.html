@@ -5,22 +5,23 @@
 	<title>Meow</title>
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
-	<script type="text/JavaScript" src="http://127.0.0.1:35729/livereload.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 </head>
 <body>
 	<div class="bg">
 		<div class="container">
 			<form>
-				<input type="text" name="" id="keyword">
+				<span id="icon" class="fa fa-search fa-lg"></span>
+				<input type="text" id="keyword" autofocus="">
 				<button type="submit" id="btn"></button>
+				<audio id="audio" src="audio/meow.mp3"></audio>
 			</form>
 			<div id="more" class="more">
-				<ul id="list">
-				</ul>
+				<ul id="list"></ul>
 			</div>
 		</div>
 	</div>
-	<script src="http://code.jquery.com/jquery-1.4.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>

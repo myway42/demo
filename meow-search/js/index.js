@@ -14,71 +14,81 @@ function addEvent(id, event, fn) {
 }
 
 var k = getDOM('keyword');
+var li = getDOM('list').getElementsByTagName('li');
+//l=列表长度
+var l;
+//列表标志位
+var index = -1;
+//获取原先的关键词
+var oldValue = '';
 
 //输入关键词,获取相关列表
 addEvent('keyword', 'keyup', search);
 
 //失去焦点,隐藏列表
-addEvent('keyword', 'blur', function () {
+addEvent(document, 'click', function () {
 	getDOM('more').style.display = 'none';
 	index = -1;
+	clearLi();
 });
 
-//获得焦点,显示列表
-addEvent('keyword', 'focus', search);
+//获得焦点,重新获取搜索项列表并显示
+addEvent('keyword', 'click', function (event) {
+	var e = event || window.event;
+	e.stopPropagation();
+	search();
+});
 
-//l=列表长度
-var l;
-var li = getDOM('list').getElementsByTagName('li');
+//鼠标移入事件,鼠标经过时增加css样式,点击时跳转链接
+addEvent('more', 'mouseenter', function (event) {
+	var e = event || window.event;
+	e.stopPropagation();
+	for (var i = 0; i < l; i++) {
+		li[i].onmouseover = function () {
+			clearLi();
+			var that = this;
+			this.className = 'active';
+			index = this.getAttribute('selectid');
+		};
+		li[i].onclick = function () {
+			var that = this;
+			getDOM('audio').play();
+			getDOM('audio').onended = function () {
+				location.href = "http://cn.bing.com/search?q=" + that.innerText;
+			};
+		};
+	}
+});
 
-//清除列表的css样式
+//enter键,跳转搜索链接
+addEvent('btn', 'click', function (event) {
+	if (k.value) {
+		var e = event || window.event;
+		e.preventDefault();
+		getDOM('audio').play();
+		getDOM('audio').onended = function () {
+			location.href = "http://cn.bing.com/search?q=" + k.value;
+		};
+	}
+});
+
+//清除列表的css样式函数
 function clearLi() {
 	for (var i = 0; i < l; i++) {
 		li[i].className = '';
 	}
 }
-//鼠标移入事件,优化修复鼠标移出后hover样式消失
-function mouse() {
-	for (var i = 0; i < l; i++) {
-		li[i].onmouseenter = function () {
-			clearLi();
-			this.className = 'active';
-			index = this.getAttribute('selectid');
-		};
-		li[i].onclick = function () {
-			location.href = "http://cn.bing.com/search?q=" + this.innerText;
-		};
-	}
-}
 
-var index = -1;
-var oldValue = '';
-
-//通过ajax获取搜索列表
+//通过ajax获取搜索列表函数
 function search(event) {
 	var e = event || window.event;
-
-	// getDOM('more').style.display = 'none';
-													//还需解决:鼠标和键盘选择关键词配合
 	if (k.value) {
-		
-//使用键盘方向键选取列表关键字
-		if (e.keyCode===40) {
-			clearLi();
-			index++;
-			if (index > l-1) {index = 0;}
-	        li[index].className = 'active';
-	        k.value = li[index].innerHTML;
-	    }else if (e.keyCode===38) {
-	    	clearLi();
-	      	index--;
-	      	if (index < 0) {index = l-1;}
-	      	li[index].className = 'active';
-	      	k.value = li[index].innerHTML;
+		getDOM('more').style.display = 'block';
+		getDOM('icon').style.display = 'none';
 //如果关键词改变,进行异步传输
-	    }else if (k.value !== oldValue) {
+	    if (k.value !== oldValue && e.keyCode!==40 && e.keyCode!==38 && e.keyCode!==13) {
 			$.ajax({
-				url: "http://api.bing.com/qsonhs.aspx?type=cb&q=" + $('#keyword').val(),
+				url: "http://cn.bing.com/qsonhs.aspx?type=cb&q=" + k.value,
 				type: 'GET',
 				dataType: 'jsonp',
 				jsonp:'cb',
@@ -88,7 +98,7 @@ function search(event) {
 					var list = '';
 					l=d.length;
 					for (var i = 0; i < l; i++){
-						list += ('<li class="item" selectid="' + i + '">' + d[i].Txt + '</li>');
+						list += ('<li selectid="' + i + '">' + d[i].Txt + '</li>');
 					}
 					$('#list').html(list);
 				},
@@ -97,16 +107,30 @@ function search(event) {
 				}
 			});
 			index = -1;
+			oldValue = k.value;
+//按↓键,选择列表下一个关键词
+		}else if (e.keyCode===40) {
+			clearLi();
+			index++;
+			if (index > l-1) {index = 0;}
+	        li[index].className = 'active';
+	        k.value = li[index].innerHTML;
+//按↑键,选择列表上一个关键词
+	    }else if (e.keyCode===38) {
+	    	clearLi();
+	      	index--;
+	      	if (index < 0) {index = l-1;}
+	      	li[index].className = 'active';
+	      	k.value = li[index].innerHTML;
 		}
-		getDOM('more').style.display = 'block';
-		clearLi();
-		mouse();	
-
-//获取原关键词,以便比较
-		oldValue = k.value;
+	}else {
+		getDOM('more').style.display = 'none';
+		getDOM('icon').style.display = 'block';
 	}
 
 }
+
+
 
 
 		// var xhr = new XMLHttpRequest();
@@ -123,8 +147,6 @@ function search(event) {
 		// 		}
 		// 	}
 		// };
-
-
 
 		// var url = "http://api.bing.com/qsonhs.aspx?type=cb&q=" + k.value;
 		// var script = document.createElement('script');

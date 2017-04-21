@@ -23,6 +23,15 @@ body
     left: 50%;
 }
 
+.fa-search
+{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+
+    color: #e4d6bc;
+}
+
 input
 {
     font-size: 20px;
@@ -55,7 +64,8 @@ button
 
 .more
 {
-	display: none;
+    display: none;
+
     width: 100%;
 }
 
@@ -70,17 +80,18 @@ ul
 
 li
 {
-    cursor: pointer;
-
     font-size: 20px;
 
     padding: 5px 10px;
 
+    cursor: pointer;
+
     color: #777;
 }
 
-.item:hover, .active
+.active
 {
     text-decoration: underline;
-	background-color: #E4D8BE;
+
+    background-color: #e4d8be;
 }
