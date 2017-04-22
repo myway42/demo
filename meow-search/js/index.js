@@ -14,6 +14,7 @@ function addEvent(id, event, fn) {
 }
 
 var k = getDOM('keyword');
+var more = getDOM('more');
 var li = getDOM('list').getElementsByTagName('li');
 //l=列表长度
 var l;
@@ -22,12 +23,16 @@ var index = -1;
 //获取原先的关键词
 var oldValue = '';
 
+var audio = document.createElement('audio');
+audio.setAttribute('src', 'audio/meow.mp3');
+more.parentNode.appendChild(audio);
+
 //输入关键词,获取相关列表
 addEvent('keyword', 'keyup', search);
 
 //失去焦点,隐藏列表
 addEvent(document, 'click', function () {
-	getDOM('more').style.display = 'none';
+	more.style.display = 'none';
 	index = -1;
 	clearLi();
 });
@@ -52,8 +57,8 @@ addEvent('more', 'mouseenter', function (event) {
 		};
 		li[i].onclick = function () {
 			var that = this;
-			getDOM('audio').play();
-			getDOM('audio').onended = function () {
+			audio.play();
+			audio.onended = function () {
 				location.href = "http://cn.bing.com/search?q=" + that.innerText;
 			};
 		};
@@ -65,8 +70,8 @@ addEvent('btn', 'click', function (event) {
 	if (k.value) {
 		var e = event || window.event;
 		e.preventDefault();
-		getDOM('audio').play();
-		getDOM('audio').onended = function () {
+		audio.play();
+		audio.onended = function () {
 			location.href = "http://cn.bing.com/search?q=" + k.value;
 		};
 	}
@@ -83,7 +88,7 @@ function clearLi() {
 function search(event) {
 	var e = event || window.event;
 	if (k.value) {
-		getDOM('more').style.display = 'block';
+		more.style.display = 'block';
 		getDOM('icon').style.display = 'none';
 //如果关键词改变,进行异步传输
 	    if (k.value !== oldValue && e.keyCode!==40 && e.keyCode!==38 && e.keyCode!==13) {
@@ -124,7 +129,7 @@ function search(event) {
 	      	k.value = li[index].innerHTML;
 		}
 	}else {
-		getDOM('more').style.display = 'none';
+		more.style.display = 'none';
 		getDOM('icon').style.display = 'block';
 	}
 
