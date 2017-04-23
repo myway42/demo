@@ -1,4 +1,4 @@
-body
+ body
 {
     background: #dfcfb5;
 }
@@ -20,7 +20,7 @@ body
 {
     position: absolute;
     top: 20%;
-    left: 50%;
+    left: 45%;
 }
 
 .fa-search
@@ -39,7 +39,7 @@ input
 
     float: left;
 
-    width: 300px;
+    width: 420px;
     height: 35px;
     padding: 5px 10px;
 
