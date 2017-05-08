@@ -117,7 +117,7 @@
 	//如果关键词改变,进行异步传输
 		    if (k.value !== oldValue && e.keyCode!==40 && e.keyCode!==38 && e.keyCode!==13) {
 				$.ajax({
-					url: "http://cn.bing.com/qsonhs.aspx?type=cb&q=" + k.value,
+					url: "http://cn.bing.com/qsonhs.aspx?type=cb&q=" + k.value + "&t=" +new Date().getTime(),
 					type: 'GET',
 					dataType: 'jsonp',
 					jsonp:'cb',
