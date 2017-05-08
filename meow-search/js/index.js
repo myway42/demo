@@ -116,25 +116,36 @@
 			getDOM('icon').style.display = 'none';
 	//如果关键词改变,进行异步传输
 		    if (k.value !== oldValue && e.keyCode!==40 && e.keyCode!==38 && e.keyCode!==13) {
-				$.ajax({
-					url: "http://cn.bing.com/qsonhs.aspx?type=cb&q=" + k.value + "&t=" +new Date().getTime(),
-					type: 'GET',
-					dataType: 'jsonp',
-					jsonp:'cb',
-					success: function (data) {
-	//获得服务器的JSON格式返回值,更新html内容
-						var d = data.AS.Results[0].Suggests;
-						var list = '';
-						l=d.length;
-						for (var i = 0; i < l; i++){
-							list += ('<li selectid="' + i + '">' + d[i].Txt + '</li>');
-						}
-						$('#list').html(list);
-					},
-					error: function() {
-						alert('错误:' + readyState);
-					}
-				});
+	// 			$.ajax({
+	// 				url: "http://cn.bing.com/qsonhs.aspx?type=cb&q=" + k.value + "&t=" +new Date().getTime(),
+	// 				type: 'GET',
+	// 				dataType: 'jsonp',
+	// 				jsonp:'cb',
+	// 				success: function (data) {
+	// //获得服务器的JSON格式返回值,更新html内容
+	// 					var d = data.AS.Results[0].Suggests;
+	// 					var list = '';
+	// 					l=d.length;
+	// 					for (var i = 0; i < l; i++){
+	// 						list += ('<li selectid="' + i + '">' + d[i].Txt + '</li>');
+	// 					}
+	// 					$('#list').html(list);
+	// 				},
+	// 				error: function() {
+	// 					alert('错误:' + readyState);
+	// 				}
+	// 			});
+	 			
+	 			//利用原生js实现跨域
+	 			if (getDOM('xhr')) {	//删除之前动态添加的script
+	 				document.getElementsByTagName('body')[0].removeChild(getDOM('xhr'));
+	 			}
+				var url = "http://cn.bing.com/qsonhs.aspx?type=cb&cb=callback&q=" + k.value + "&t=" +new Date().getTime();
+				var script = document.createElement('script');
+				script.setAttribute('src', url);
+				script.id = 'xhr';
+				document.getElementsByTagName('body')[0].appendChild(script);
+
 				index = -1;
 				oldValue = k.value;
 	//按↓键,选择列表下一个关键词
@@ -158,11 +169,22 @@
 		}
 
 	}
+	//获得服务器的JSON格式返回值,更新html内容
+	function callback(data) {
+		var d = data.AS.Results[0].Suggests;
+		var list = '';
+		l=d.length;
+		for (var i = 0; i < l; i++){
+			list += ('<li selectid="' + i + '">' + d[i].Txt + '</li>');
+		}
+		getDOM('list').innerHTML = list;
+	}
+	//把callback函数设置为全局属性,以便外部script标签能获取到
+	Object.defineProperties(window,{
+        callback:{value:callback},
+    });
 
 }());
-
-
-
 
 		// var xhr = new XMLHttpRequest();
 		// xhr.onreadystatechange = function () {
@@ -178,10 +200,5 @@
 		// 		}
 		// 	}
 		// };
-
-		// var url = "http://api.bing.com/qsonhs.aspx?type=cb&q=" + k.value;
-		// var script = document.createElement('script');
-		// script.setAttribute('src', url);
-		// document.getElementsByTagName('body')[0].appendChild(script);
 		// xhr.open('GET', url);
-		// xhr.send(null); 
+		// xhr.send(null); 		
