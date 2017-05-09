@@ -42,7 +42,7 @@
 	//获得焦点,重新获取搜索项列表并显示
 	addEvent('keyword', 'click', function (event) {
 		var e = event || window.event;
-		e.stopPropagation ? e.stopPropagation() : e.cancelBubble = true;
+		e.stopPropagation ? e.stopPropagation() : (e.cancelBubble = true);
 		search();
 	});
 
