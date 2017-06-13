@@ -1,0 +1,160 @@
+/*------------去除默认样式--------------*/
+body, h1, h2, h3, ul, p, input {
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+	font-weight: normal;
+	font-family: Helvetica, Arial, sans-serif;
+	vertical-align: baseline;
+	color: #000;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+/*-----------主要样式---------------*/
+body {
+	background-color: #fafafa;
+}
+
+header {
+	margin: 0 auto;
+	padding: 10px 10px;
+	width: 600px;
+	background-color: #db4c3f;
+}
+
+h1 {
+	font-size: 18px;
+	color: #fff;
+}
+
+section {
+	clear: both;
+	margin: 0 auto;
+	width: 600px;
+}
+
+h2 {
+	padding: 10px 0;
+	font-size: 18px;
+}
+
+#todo {
+	padding: 8px 0 8px 5px;
+	width: 100%;
+	border: 1px solid #CCC;
+	outline: none;
+}
+
+#noTask {
+	padding: 5px;
+	border-bottom: 1px solid #f8f8f8;
+	background-color: #fff;
+	font-size: 15px;
+}
+
+#list {
+	background-color: #fff;
+}
+
+#list li {
+	border-bottom: 1px solid #f8f8f8;
+}
+
+#list li:hover {
+	background-color: #fafafa;
+}
+
+#list li:hover span {
+	display: block;
+}
+
+#list input {
+	display: none;
+}
+
+#list input+label {
+	display: inline-block;
+	position: relative;
+	margin: 10px;
+	padding: 7px;
+	width: 5px;
+	height: 5px;
+	border: 1px solid #EBD1D1;
+	border-radius: 50px;
+}
+
+#list input+label i {
+	position: absolute;
+	top: -13px;
+	left: -2px;
+	font-size: 30px;
+	font-style: normal;
+	color: transparent;
+	transition: all 200ms linear;
+}
+
+#list input+label em {
+	display: inline-block;
+	margin-top: -18px;
+	margin-left: 24px;
+	padding: 12px 0 13px;
+	width: 520px;
+	vertical-align: middle;
+	font-style: normal;
+}
+
+#list .checked {
+	border: 1px solid #CCC;
+}
+
+#list .checked i {
+	position: absolute;
+	top: -13px;
+	left: -2px;
+	font-size: 30px;
+	font-style: normal;
+	color: #CCC;
+	-webkit-transition: all 200ms linear;
+	transition: all 200ms linear;
+}
+
+#list .checked em {
+	text-decoration: line-through;
+	color: #CCC;
+}
+
+#list span {
+	cursor: pointer;
+	display: none;
+	position: absolute;
+	margin-top: -37px;
+	margin-left: 560px;
+	font-size: 30px;
+	color: #CCC;
+}
+
+#list span:hover {
+	-webkit-animation: change 200ms linear;
+	animation: change 200ms linear;
+
+}
+
+@-webkit-keyframes change {
+	0%{-webkit-transform: rotate(0deg);}
+	50%{-webkit-transform: rotate(90deg);}
+	100%{-webkit-transform: rotate(180deg);}
+}
+
+@keyframes change {
+	0%{-webkit-transform: rotate(0deg);}
+	50%{-webkit-transform: rotate(90deg);}
+	100%{-webkit-transform: rotate(180deg);}
+}

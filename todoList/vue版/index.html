@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>todo</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<header><h1>TODO</h1></header>
+	<div id="container">
+		<section>
+			<h2>Add</h2>
+			<input type="text" name="text" id="todo" placeholder="Add todo  Press Enter" v-model="todo" v-on:keyup.enter="add">
+		</section>
+		<section>
+			<h2>List</h2>
+			<h3 id="noTask" v-show="!list.length">No task</h3>
+			<ul id="list">
+				<li v-for="item in list">
+					<input :id="item.id" type="checkbox" v-model="item.isChecked">
+					<label :for="item.id" :class="{checked:item.isChecked}">
+						<i>&#10004</i>
+						<em>{{item.title}}</em>
+					</label>
+					<span v-on:click="del(item)">&#215</span>
+				</li>
+			</ul>
+		</section>
+	</div>
+
+	
+	<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
