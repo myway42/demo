@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery</title>
+<link href="css/index.css" rel="stylesheet"/>
+</head>
+<body>
+<header id="top">
+	<section id="nav">
+		<div id="content">
+			<ul class="nav-left">
+				<li class="jQuery" title="jQuery"><a href="#"></a></li>
+				<li class="jQuery-ui" title="jQuery-ui"><a href="#"></a></li>
+				<li class="jQuery-Mobile" title="jQuery-Mobile"><a href="#"></a></li>
+				<li class="Sizzle" title="Sizzle"><a href="#"></a></li>
+				<li class="QUnit" title="QUnit"><a href="#"></a></li>
+			</ul>
+			<ul class="nav-right">
+				<li><a href="#">Plugins</a></li>
+				<li><a href="#">Contribute</a></li>
+				<li><a href="#">Events</a></li>
+				<li><a href="#">Support</a></li>
+				<li><a href="#">jQuery Foundation</a></li>
+		</ul>
+		</div>
+	</section>
+</header>
+<section id="middle" class="clear">
+	<header id="middle-top" class="max clear">
+		<h1 class="logo clear">
+			<a href="#" title="jquery">jquery</a>
+		</h1>
+		<div class="logo-right clear">
+			<a href="#"><img src="img/logo-right.png"/></a>
+		</div>
+	</header>
+	<nav id="main-nav" class="max">
+		<div class="wrap clear">
+			<ul class="menu-left clear">
+				<li><a href="#">Download</a></li>
+				<li><a href="#">API Documentation</a></li>
+				<li><a href="#">Blog</a></li>
+				<li><a href="#">Plugins</a></li>
+				<li><a href="#">Browser Support</a></li>
+			</ul>
+			<select class="sec">
+				<option>Navigate...</option>
+				<option>Download</option>
+				<option>API Documentation</option>
+				<option>Blog</option>
+				<option>Plugins</option>
+				<option>Browser Support</option>
+			</select>
+			<form class="search">
+				<input type="text" value="Search" class="text" />
+				<input type="submit" value="" class="submit"/>
+			</form>
+		</div>	
+	</nav>
+	<div id="main-theme" class="max clear">
+		<div class="main-con clear">
+			<div class="main-graph con-padding">
+				<div class="main-left clear">
+					<div>
+						<div class="one fist"></div>
+						<h3>Lightweight Footprint</h3>
+						<p>Only 32kB minified and gzipped. Can also be included as an AMD module</p>
+					</div>
+					<div>
+						<div class="two fist"></div>
+						<h3>CSS3 Compliant</h3>
+						<p>Supports CSS3 selectors to find elements as well as in style property manipulation</p>
+					</div>
+					<div>
+						<div class="three fist"></div>
+						<h3>Cross-Browser</h3>
+						<p><a href="#">IE, Firefox, Safari, Opera, Chrome, and more</a></p>
+					</div>
+				</div>	
+			</div>
+			<div class="main-download con-padding">
+				<div class="download-width">
+					<a href="#">
+						<span class="download"></span>Download jQuery
+						<span>v3.2.1</span>
+					</a>
+					<div class="download-bottom">
+						<a href="#">View Source on GitHub →</a>
+						<a href="#">How jQuery Works →</a>
+					</div>
+				</div>	
+			</div>
+		</div>	
+	</div>
+	<section id="what" class="max clear">
+	<div class="what clear">	 
+		<div id="what-left">
+			<h2>What is jQuery?</h2>
+			<p>jQuery is a fast, small, and feature-rich JavaScript library. It makes
+			things like HTML document traversal and manipulation, event handling,
+			animation, and Ajax much simpler with an easy-to-use API that works across
+			a multitude of browsers. With a combination of versatility and
+			extensibility, jQuery has changed the way that millions of people write
+			JavaScript.</p>
+			<h2>Corporate Members</h2>
+			<ul class="clear">
+				<li><a href="#"><img src="img/neobux.png"/><span></span></a></li>
+				<li><a href="#"><img src="img/mediatemple.png"/><span></span></a></li>
+				<li><a href="#"><img src="img/famous.png"/><span></span></a></li>
+				<li><a href="#"><img src="img/maxcdn.png"/><span></span></a></li>
+			</ul>
+			<p>Support from our corporate members makes it possible for the jQuery
+			Foundation to continue our work on our JavaScript libraries and pushing
+			the open web forward with events and participation in the standards process.
+			View our<a href="#">members page</a> for a full list of corporate and individual members.</p>
+			<h2>Other jQuery Foundation Projects</h2>
+			<div class="other">
+				<div class="other-a"><a href="#">jQueryUI</a></div>
+				<div class="other-b"><a href="#">jQuery Mobile</a></div>
+			</div>
+			<div class="other">
+				<div class="other-c"><a href="#">QUnit</a></div>
+				<div class="other-d"><a href="#">Sizzle</a></div>
+			</div>
+		</div>
+		<div id="what-right">
+			<h3>Resources</h3>
+			<ul class="what-list">
+				<li>
+					<a href="#">jQuery Core API Documentation</a>
+				</li>
+				<li>
+					<a href="#">jQuery Learning Center</a>
+				</li>
+				<li>
+					<a href="#">jQuery Blog</a>
+				</li>
+				<li>
+					<a href="#">Contribute to jQuery</a>
+				</li>
+				<li>
+					<a href="#">About the jQuery Foundation</a>
+				</li>
+				<li>
+					<a href="#">Browse or Submit jQuery Bugs</a>
+				</li>
+				<li class="try-jq">
+					<a href="#">Try jQuer</a>
+				</li>
+			</ul>
+		</div>
+	</div>	
+</section>
+	<section id="look" class="max clear">
+		<div class="what clear look">
+			<h2>A Brief Look</h2>
+			<h3>DOM Traversal and Manipulation</h3>
+			<p>Get the <span>&lt;button&gt;</span> element with the class 'continue' and change its HTML to 'Next Step...'</p>
+			<div class="td">
+				<i>
+					<pre>1 |  $(<span class="string">"button.continue"</span>).html(<span class="string">"Next Step..."</span>)</pre>
+				</i>
+			</div>
+			<h3>Event Handling</h3>
+			<p>Show the <span>#banner-message</span> element that is hidden with
+			<span>display:none</span> in its CSS when any button in <span>#button-container</span> is
+			clicked.</p>
+			<div class="td">
+				<i>
+					<pre>1 | var hoddenBox =$(<span class="string">"#banner-message"</span>)</pre>
+				</i>
+				<i>
+					<pre>2 | $(<span class="string">"#button-container button"</span>).on(<span class="string">"click"</span>,function(event){</pre>
+				</i>
+				<i>
+					<pre>3 | hiddenBox.show();</pre>
+				</i>
+				<i>
+					<pre>4 | });</pre>
+				</i>
+			</div>
+			<h3>Ajax</h3>
+			<p>Call a local script on the server <span>/api/getWeather</span>
+			with the query parameter <span>zipcode=97201</span>
+			and replace the element <span>#weather-temp</span>'s html with the returned text.</p>
+			<div class="td">
+				<i>
+					<pre>1 |  $.ajax({</pre>
+				</i>
+				<i>
+					<pre>2 |    url:<span class="string">"/api/getWeather"</span></pre>	
+				</i>
+				<i>
+					<pre>3 |    data:{</pre>
+				</i>
+				<i>	
+					<pre>4 |      zipcode: <em>97201</em>	</pre>
+				</i>
+				<i>	
+					<pre>5 |     },</pre>
+				</i>
+				<i>
+					<pre>6 |     success: function(data){</pre>
+				</i>
+				<i>	
+					<pre>7 |       $(<span class="string">"#weather-temp"</span>).html(<span class="string">"&lt;strong&gt;"</span>+data+<span class="string">"&lt;/strong&gt; degrees"</span>);</pre>	
+				</i>
+				<i>
+					<pre>8 |     }</pre>
+				</i>
+				<i>	
+					<pre>9 |  }); </pre>
+				</i>
+			</div>
+		</div>
+	</section>
+</section>
+<footer id="base">
+	<div class="max clear">
+			<section class="base base-top max clear">
+				<div>
+					<h3><span>Books</span></h3>
+					<ul class="base-list clear">
+						<li>
+							<a href="#">
+								<img src="img/footer-a.jpg" />
+								<span>Learning jQuery Fourth Edition</span>
+								<i>Karl Swedberg and Jonathan Chaffer</i>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="img/footer-b.jpg"/>
+								<span>jQuery in Action</span>
+								<i>Bear Bibeault, Yehuda Katz, and Aurelio De Rosa</i>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="img/footer-c.jpg"/>
+								<span>jQuery Succinctly</span>
+								<i>Cody Lindley</i>
+							</a>
+						</li>
+					</ul>
+				</div>	
+			</section>
+			<section class="base base-bottom max clear">
+					<ul class="bottom-list">
+						<li>
+							<a href="#">Learning Center</a>
+						</li>
+						<li>
+							<a href="#">Forum</a>
+						</li>
+						<li>
+							<a href="#">API</a>
+						</li>
+						<li>
+							<a href="#">Twitter</a>
+						</li>
+						<li>
+							<a href="#">IRC</a>
+						</li>
+						<li>
+							<a href="#">GitHub</a>
+						</li>
+					</ul>
+					<p class="bottom-p">
+						Copyright 2017 
+						<a href="#">The jQuery Foundation</a>
+						<a href="#">jQuery License</a>	
+						<span>
+							<a href="#"><img src="img/bottom.png" />Web hosting by Media Temple</a>
+							|
+							<a href="#"><img src="img/bottom-a.png" />CDN by MaxCDN</a>
+							|
+							<a href="#"><img src="img/bottom-b.png" />Powered by WordPress</a>
+							| Thanks:
+							<a href="#">Members</a>
+							,
+							<a href="#">Sponsors</a>
+						</span>
+					</p>
+		</section>
+	</div>
+</footer>
+</body>
+</html>
