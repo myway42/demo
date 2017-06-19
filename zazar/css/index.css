@@ -1,0 +1,314 @@
+/*bannan图*/
+.banner{
+	height: 568px;
+	position: relative;
+	overflow: hidden;
+}
+
+.banner-bg{
+}
+
+.banner-bg img{
+	margin: 0 auto;
+	border-bottom: 3px solid #f34949;
+}
+
+.banner-text{
+	position: absolute;
+	top: 50%;left: 50%;
+	margin-top: -79px;
+	margin-left: -388px;
+	text-align: center;
+	color: #ebebeb;
+	font-size: 16px;
+	word-spacing: -1px;
+}
+
+.banner-text p{
+	padding: 0 27px 0;
+    margin: 20px 148px;
+    line-height: 1px;
+    border-left: 40px solid #ebebeb;
+    border-right: 40px solid #ebebeb;
+}
+
+/*热门菜单*/
+menu{
+	width: 1100px;
+	margin: 0 auto;
+}
+
+.the-menu{
+	width: 155px;
+	height: 73px;
+	margin: 0 auto;
+	background-color: #f34949;
+	position: relative;
+}
+
+.the-menu span{
+	width: 0;
+	height: 0;
+	border-width:0 78px 13px;
+    border-style:solid;
+    border-color:transparent transparent #fff;
+	position: absolute;
+	top: 60px;left: 0;
+}
+
+.the-menu p{
+	margin: 0;
+	font-family: cambria;
+	font-size: 20px;
+	text-align: center;
+	line-height: 60px;
+	color: #fff;
+	letter-spacing: 1px;
+}
+
+.hot-list{
+	width: 1100px;
+	height: 491px;
+	margin:0 auto;
+}
+
+.list-content{
+	float: left;
+	width: 494px;
+	margin-right: 112px;
+}
+
+.list-r{
+	margin-right: 0;
+}
+
+.food{
+	float: left;
+}
+
+.price{
+	float: right;
+}
+
+.list-content a{
+	display: inline-block;
+	width: 100%;
+	height: 50px;
+	margin-top: 50px;
+}
+
+.list-content a:hover{
+	padding-left: 30px;
+}
+
+
+.list-content p{
+	margin-bottom: 0;
+	font-family: cambria;
+	font-size: 16px;
+	color: #555555;
+}
+
+.list-content small{
+	font-family: cambria;
+	font-size: 12px;
+	color: #b7b7b7;
+}
+
+.list-content span{
+	float: right;
+	display: inline-block;
+	width: 192px;
+	margin-left: -300px;
+	margin-right: 80px;
+	margin-top: 26px;
+	border-top: 1px solid #e3e1e1;
+}
+
+.load-more{
+	width: 1100px;
+	margin:0 auto;
+}
+
+.load-more button{
+	display: block;
+	margin:0 auto;
+	width: 133px;
+	height: 34px;
+	background-color: #fff;
+	border: 1px solid  #e3e1e1;
+}
+
+.btn-text{
+	font-size: 14px;
+	font-family: cambria;
+	color: #b7b7b7;
+	padding-right: 15px;
+	margin-right: 10px;
+	border-right: 1px solid #b7b7b7;
+}
+
+.triangle{
+	float: right;
+	display: block;
+	border-top: 5px solid #b7b7b7;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	position: relative;
+	margin-top: 8px;
+	margin-right: 10px;
+}
+
+.triangle i{
+	border-top: 4px solid #fff;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	position: absolute;
+	top: -6px;left: -4px;
+}
+
+/*商品展示*/
+.show{
+	width: 1100px;
+	height: 362px;
+	margin:0 auto;
+	margin-top: 200px;
+}
+
+h1{
+	font-family: cambria;
+	font-size: 20px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: #3b3b3b;
+}
+
+.line{
+	display: inline-block;
+	width: 200px;
+	border-top: 1px solid #e5e3e3;
+	vertical-align:middle;
+	margin-left: 16px;
+}
+
+.btn-circle{
+	float: right;
+}
+
+.btn-circle a{
+	display: inline-block;
+	margin-left: 10px;
+	border-radius: 50%;
+	width: 9px;
+	height: 9px;
+	background-color: #dedede;
+}
+
+.btn-circle a:hover{
+	background-color: #9b9b9b;
+}
+
+.show a{
+	color: #555555;
+	text-decoration: none;
+}
+
+.show1,.show2,.show3,.show4{
+	float: left;
+	width: 230px;
+	margin-right: 60px;
+	margin-top:70px;
+}
+
+.show4{
+	margin-right: 0;
+}
+
+.show-pic a:hover{
+	margin-top: 30px;
+	text-decoration: underline;
+}
+
+.show p{
+	font-family: cambria;
+	font-size: 16px;
+	letter-spacing: 1px;
+	margin-bottom: 4px;
+}
+
+.show p span{
+	float: right;
+	letter-spacing: 0;
+}
+
+.star{
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	margin-right: 2px;
+	border:none;
+	background-image: url(../image/star.png);
+}
+
+.no-star{
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	margin-right: 2px;
+	background-image: url(../image/star.png);
+	background-position: 100% 100%;
+}
+
+.show-food{
+	width: 1100px;
+	height: 728px;
+	margin: 0 auto;
+	margin-top: 200px;
+}
+
+.foods{
+	width: 100%;
+	height: 381px;
+	margin-top: 120px;
+}
+
+.food1{
+	float: left;
+	width: 353px;
+	height: 381px;
+	background-image:url(../image/food1.jpg);
+	transition: all 0.6s;
+}
+
+.food2{
+	float: left;
+	width: 287px;
+	height: 251px;
+	background-image:url(../image/food2.jpg);
+	transition: all 0.6s;
+}
+
+.food3{
+	float: right;
+	width: 460px;
+	height: 381px;
+	background-image:url(../image/food4.jpg);
+	transition: all 0.6s;
+}
+
+.food4{
+	float: left;
+	display: inline-block;
+	width: 287px;
+	height: 130px;
+	margin-left: 353px;
+	margin-top: -130px;
+	background-image:url(../image/food3.jpg);
+	background-position: bottom left;
+	background-repeat: no-repeat;
+	transition: all 0.6s;
+}
+
+.foods a:hover{
+	transform:scale(1.2);
+}
