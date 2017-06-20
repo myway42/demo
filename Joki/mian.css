@@ -207,17 +207,18 @@ section.projects .img6 {
   width: 35%;
 }
 section.projects p {
+  margin-top: -30px;
   font-size: 30px;
   color: #fff;
 }
 section.projects a {
   display: inline-block;
-  margin-top: 0.73206442rem;
+  margin-top: 20px;
   width: 13%;
   padding: 15px 25px;
   border: 1px solid #fff;
   border-radius: 50px;
-  font-size: 0.65885798rem;
+  font-size: 18px;
   text-align: center;
 }
 section.projects a:hover {
@@ -249,7 +250,7 @@ section.projects span.next:hover {
   color: #fff;
 }
 section.projects .dot {
-  margin-top: 23.7920937rem;
+  margin-top: 21.96193265rem;
   text-align: center;
 }
 section.projects .dot span {
@@ -422,7 +423,7 @@ section.say .email a:hover {
     width: 50%;
   }
   section.projects a {
-    width: 15%;
+    width: 20%;
   }
   section.projects .dot {
     margin-top: 31.11273792rem;
@@ -507,7 +508,7 @@ section.say .email a:hover {
     text-align: center;
   }
   section.projects .demo {
-    height: 65.88579795rem;
+    height: 29.28257687rem;
   }
   section.projects .img1 {
     margin-top: -3.66032211rem;
@@ -542,10 +543,10 @@ section.say .email a:hover {
     width: 50%;
   }
   section.projects a {
-    width: 16%;
+    width: 25%;
   }
   section.projects .dot {
-    margin-top: 27.45241581rem;
+    margin-top: 25.62225476rem;
   }
   section.projects span.pre,
   section.projects span.next {
