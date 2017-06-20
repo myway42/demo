@@ -53,12 +53,12 @@ h1 a {
   text-transform: uppercase;
   color: #3a3a3a;
 }
-nav {
+div.wrapper {
   float: right;
   margin-top: 23px;
   margin-right: 4.39238653rem;
 }
-nav a {
+div.wrapper a {
   display: inline-block;
   margin-left: 1.83016105rem;
   font-size: 14px;
@@ -66,12 +66,11 @@ nav a {
   text-transform: uppercase;
   color: #3a3a3a;
 }
-nav a:hover {
+div.wrapper a:hover {
   border-bottom: 1px solid #313131;
   padding-bottom: 6px;
 }
 section.intro {
-  overflow: hidden;
   padding-top: 137px;
   padding-bottom: 100px;
   background-color: #FECA30;
@@ -306,6 +305,13 @@ section.say .email a:hover {
   div.container {
     padding: 0;
   }
+  div.wrap {
+    position: static;
+    width: 100%;
+  }
+  div.wrap nav {
+    margin-top: 30px;
+  }
   section.projects .demo {
     height: 29.28257687rem;
   }
@@ -316,6 +322,50 @@ section.say .email a:hover {
 @media (min-width: 321px) and (max-width: 766px) {
   div.container {
     padding: 0;
+  }
+  header {
+    border-bottom: 1px solid #fff;
+  }
+  div.wrap {
+    position: static;
+    width: 100%;
+  }
+  div.wrapper {
+    margin-top: 14px;
+    margin-right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #3A3A3A;
+  }
+  div.wrapper::before {
+    content: "≡";
+    padding-left: 12px;
+    font-size: 30px;
+    line-height: 46px;
+    color: #FECA30;
+  }
+  div.wrapper nav {
+    display: none;
+    position: relative;
+    margin-top: 4px;
+    margin-left: -90px;
+    width: 140px;
+    height: 117px;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  div.wrapper a {
+    display: block;
+    margin-left: 0;
+    padding: 10px;
+    border-bottom: 1px solid #fff;
+    font-size: 18px;
+    color: #fff;
+  }
+  section.intro {
+    padding-top: 50px;
+  }
+  section.intro img {
+    width: 80%;
   }
   section.intro p {
     display: block;
@@ -392,6 +442,50 @@ section.say .email a:hover {
 @media (max-width: 320px) {
   div.container {
     padding: 0;
+  }
+  header {
+    border-bottom: 1px solid #fff;
+  }
+  div.wrap {
+    position: static;
+    width: 100%;
+  }
+  div.wrapper {
+    margin-top: 14px;
+    margin-right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #3A3A3A;
+  }
+  div.wrapper::before {
+    content: "≡";
+    padding-left: 12px;
+    font-size: 30px;
+    line-height: 46px;
+    color: #FECA30;
+  }
+  div.wrapper nav {
+    display: none;
+    position: relative;
+    margin-top: 4px;
+    margin-left: -90px;
+    width: 140px;
+    height: 117px;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  div.wrapper a {
+    display: block;
+    margin-left: 0;
+    padding: 10px;
+    border-bottom: 1px solid #fff;
+    font-size: 18px;
+    color: #fff;
+  }
+  section.intro {
+    padding-top: 40px;
+  }
+  section.intro img {
+    width: 80%;
   }
   section.intro p {
     display: block;

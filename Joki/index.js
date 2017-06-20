@@ -38,12 +38,12 @@
 
 	next.onclick = function () {
 		pre.style.display = 'inline-block';
-		turn(-100);
+		slider(-100);
 	};
 
 	pre.onclick = function () {
 		next.style.display = 'inline-block';
-		turn(100);
+		slider(100);
 	};
 
 	dot.onclick = function (event) {
@@ -93,7 +93,7 @@
 		}, 30);
 	}
 
-	function turn(w) {
+	function slider(w) {
 		rotate.style.left = parseInt(rotate.style.left) + w + '%';
 
 		var n = Math.abs(parseInt(rotate.style.left))/100;
@@ -113,4 +113,25 @@
 			dots[i].index = i;
 		}
 	}
+
+	/*
+	 *移动端
+	 */
+	
+	var wrap = document.querySelector('.wrapper'),
+		nav = document.getElementsByTagName('nav')[0],
+		demo = document.querySelector('demo'),
+		x,y,end_x,end_y;
+	
+	wrap.onclick = function () {
+		if (nav.style.display === 'none') {
+			nav.style.display = 'block';
+		} else {
+			nav.style.display = 'none';
+		}
+	};
+
+	demo.addEventListener('touchstart', function (ev) {
+		var touch = ev.targetTouches[0];
+	})
 })();
