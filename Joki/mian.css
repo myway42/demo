@@ -428,8 +428,7 @@ section.say .email a:hover {
   section.projects .dot {
     margin-top: 31.11273792rem;
   }
-  section.projects span.pre,
-  section.projects span.next {
+  section.projects .turn {
     display: none;
   }
   section.say {
@@ -548,8 +547,7 @@ section.say .email a:hover {
   section.projects .dot {
     margin-top: 340px;
   }
-  section.projects span.pre,
-  section.projects span.next {
+  section.projects .turn {
     display: none;
   }
   section.say {
