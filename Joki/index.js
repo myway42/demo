@@ -167,8 +167,7 @@
 
 		end: function (ev) {
 			var duration = Date.now() - self.startPos.time;
-			console.log(duration);
-			if (duration > 100 && Math.abs(self.endPos.x) > Math.abs(self.endPos.y)) {
+			if (duration > 5 && Math.abs(self.endPos.x) > Math.abs(self.endPos.y)) {
 				ev.preventDefault();
 				if (self.endPos.x > 10) {
 					self.index = 100;
