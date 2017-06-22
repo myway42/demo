@@ -37,12 +37,10 @@
 	};
 
 	next.onclick = function () {
-		pre.style.display = 'inline-block';
 		slider(-100);
 	};
 
 	pre.onclick = function () {
-		next.style.display = 'inline-block';
 		slider(100);
 	};
 
@@ -53,13 +51,6 @@
 			clearActive();
 			ev.target.className = 'active';
 			rotate.style.left = ev.target.index*-100 + '%';
-			if (ev.target.index === dots.length-1) {
-				pre.style.display = 'inline-block';
-				next.style.display = 'none';
-			} else if (!ev.target.index) {
-				next.style.display = 'inline-block';
-				pre.style.display = 'none';
-			}
 		}
 	};
 
@@ -94,15 +85,24 @@
 	}
 
 	function slider(w) {
-		rotate.style.left = parseInt(rotate.style.left) + w + '%';
+		var current = parseInt(rotate.style.left) + w;
+		if (current > 0 || current < -500) {
+			return;
+		}
+		rotate.style.left = current + '%';
 
-		var n = Math.abs(parseInt(rotate.style.left))/100;
+		var n = Math.abs(current)/100;
 		clearActive();
 		dots[n].className = 'active';
 
 		if (n === 0) {
 			pre.style.display = 'none';
+			next.style.display = 'inline-block';
+		} else if (n > 0 && n <dots.length-1) {
+			pre.style.display = 'inline-block';
+			next.style.display = 'inline-block';
 		} else if (n === dots.length-1) {
+			pre.style.display = 'inline-block';
 			next.style.display = 'none';
 		}
 	}
@@ -120,7 +120,7 @@
 	
 	var wrap = document.querySelector('.wrapper'),
 		nav = document.getElementsByTagName('nav')[0],
-		demo = document.querySelector('demo'),
+		demo = document.querySelector('.demo'),
 		x,y,end_x,end_y;
 	
 	wrap.onclick = function () {
@@ -131,7 +131,54 @@
 		}
 	};
 
-	demo.addEventListener('touchstart', function (ev) {
-		var touch = ev.targetTouches[0];
-	})
+
+	var sliders = {
+		obj: document.querySelector('.demo'),
+		index: 0,
+
+		init: function () {
+			self = this;
+			if(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
+				this.obj.addEventListener('touchstart', self.start);
+			}
+		},
+
+		start: function (ev) {
+			var touch = ev.targetTouches[0];
+			self.startPos = {
+				x: touch.pageX,
+				y: touch.pageY,
+				time: Date.now()
+			};
+			self.obj.addEventListener('touchmove', self.move);
+			self.obj.addEventListener('touchend', self.end);
+		},
+
+		move: function (ev) {
+			var touch = ev.targetTouches[0];
+			self.endPos = {
+				x: touch.pageX - self.startPos.x,
+				y: touch.pageY - self.startPos.y
+			};
+			if (Math.abs(self.endPos.x) > Math.abs(self.endPos.y)) {
+				ev.preventDefault();
+			}
+		},
+
+		end: function (ev) {
+			var duration = Date.now() - self.startPos.time;
+			if (duration > 10 && Math.abs(self.endPos.x) > Math.abs(self.endPos.y)) {
+				if (self.endPos.x > 10) {
+					self.index = 100;
+				} else if (self.endPos.x < -10) {
+					self.index = -100;
+				}
+			}
+			slider(self.index);
+			self.obj.removeEventListener('touchmove', self.move);
+			self.obj.removeEventListener('touchend', self.end);
+		}
+	};
+
+	sliders.init();
 })();
