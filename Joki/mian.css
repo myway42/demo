@@ -32,8 +32,6 @@ div.wrap {
   z-index: 99;
   width: 97%;
   height: 80px;
-  /*	border-left: 20px solid #fff;
-	border-right: 20px solid #fff;*/
   background-color: #FECA30;
 }
 header.nav-down .wrap {
@@ -316,6 +314,36 @@ section.say .email a:hover {
   section.projects .demo {
     height: 29.28257687rem;
   }
+  section.projects .img1 {
+    margin-top: -4.75841874rem;
+    margin-bottom: -4.75841874rem;
+    width: 90%;
+  }
+  section.projects .img2 {
+    margin-top: -2.92825769rem;
+    margin-bottom: -0.36603221rem;
+    width: 55%;
+  }
+  section.projects .img3 {
+    margin-top: 1.46412884rem;
+    margin-bottom: 0rem;
+    width: 30%;
+  }
+  section.projects .img4 {
+    margin-top: -4.75841874rem;
+    margin-bottom: -4.75841874rem;
+    width: 90%;
+  }
+  section.projects .img5 {
+    margin-top: -1.09809663rem;
+    margin-bottom: -0.73206442rem;
+    width: 65%;
+  }
+  section.projects .img6 {
+    margin-top: -1.46412884rem;
+    margin-bottom: -1.46412884rem;
+    width: 35%;
+  }
   section.projects .dot {
     margin-top: 26.72035139rem;
   }
@@ -388,7 +416,7 @@ section.say .email a:hover {
     text-align: center;
   }
   section.projects .demo {
-    height: 32.94289898rem;
+    height: 54.90483163rem;
   }
   section.projects ul {
     -webkit-transition: left 400ms ease;
@@ -397,30 +425,30 @@ section.say .email a:hover {
     transition: left 400ms ease;
   }
   section.projects .img1 {
-    margin-top: -5.85651537rem;
-    margin-bottom: -5.12445095rem;
+    margin-top: -7.32064422rem;
+    margin-bottom: -6.5885798rem;
     margin-left: -66px;
     width: 135%;
   }
   section.projects .img2 {
     margin-top: -2.92825769rem;
-    margin-bottom: 0rem;
+    margin-bottom: 0.73206442rem;
     width: 77%;
   }
   section.projects .img3 {
-    margin-top: 1.09809663rem;
-    margin-bottom: 0.73206442rem;
+    margin-top: 2.56222548rem;
+    margin-bottom: 1.09809663rem;
     width: 45%;
   }
   section.projects .img4 {
-    margin-top: -5.85651537rem;
-    margin-bottom: -5.12445095rem;
+    margin-top: -7.32064422rem;
+    margin-bottom: -6.5885798rem;
     margin-left: -66px;
     width: 135%;
   }
   section.projects .img5 {
     margin-top: -0.73206442rem;
-    margin-bottom: 0rem;
+    margin-bottom: 0.73206442rem;
     width: 94%;
   }
   section.projects .img6 {
@@ -429,10 +457,10 @@ section.say .email a:hover {
     width: 50%;
   }
   section.projects a {
-    width: 20%;
+    width: 25%;
   }
   section.projects .dot {
-    margin-top: 31.11273792rem;
+    margin-top: 49.41434846rem;
   }
   section.projects .turn {
     display: none;

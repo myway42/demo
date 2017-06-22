@@ -7,7 +7,7 @@
 		dot = document.querySelector('.dot'),
 		dots = dot.getElementsByTagName('span'),
 		lastScroll = 0;
-
+//监听页面滚动,改变顶部导航栏状态
 	window.onscroll = function () {
 		var s = document.documentElement.scrollTop || document.body.scrollTop;
 		if (s === 0) {
@@ -18,7 +18,7 @@
 			}, 10);
 		}
 	};
-
+//点击导航栏链接平滑滚动到对应元素
 	header.onclick = function (event) {
 		var ev = event || window.event;
 		ev.target = ev.target || ev.srcElement;
@@ -28,14 +28,14 @@
 			ev.preventDefault ? ev.preventDefault() : ev.returnVaule = false;
 		}
 	};
-
+//点击链接平滑滚动
 	more.onclick = function (event) {
 		var ev = event || window.event;
 		var arr = this.href.split('#');
 		Scroll(arr[1]);
 		ev.preventDefault ? ev.preventDefault() : ev.returnVaule = false;
 	};
-
+//点击项目滑动
 	next.onclick = function () {
 		slider(-100);
 	};
@@ -52,8 +52,19 @@
 			ev.target.className = 'active';
 			rotate.style.left = ev.target.index*-100 + '%';
 		}
-	};
 
+		if (ev.target.index === 0) {
+			pre.style.display = 'none';
+			next.style.display = 'inline-block';
+		} else if (ev.target.index > 0 && ev.target.index <dots.length-1) {
+			pre.style.display = 'inline-block';
+			next.style.display = 'inline-block';
+		} else if (ev.target.index === dots.length-1) {
+			pre.style.display = 'inline-block';
+			next.style.display = 'none';
+		}
+	};
+//改变导航栏状态函数
 	function scrolled() {
 		var s = document.documentElement.scrollTop || document.body.scrollTop;
 
@@ -65,7 +76,7 @@
 
 		lastScroll = s;
 	}
-
+//平滑滚动函数
 	function Scroll(obj) {
 		document.documentElement.scrollTop += 1;
 		document.body.scrollTop += 1;
@@ -80,10 +91,9 @@
 			} else if (d.scrollTop > attr) {
 				d.scrollTop -= Math.ceil((d.scrollTop - attr)/7);
 			}
-			console.log(1);
 		}, 30);
 	}
-
+//滑动项目函数
 	function slider(w) {
 		var current = parseInt(rotate.style.left) + w;
 		if (current > 0 || current < -500) {
@@ -113,9 +123,20 @@
 			dots[i].index = i;
 		}
 	}
+//一个小idea
+	function hello() {
+	   console.log("%c","background: #9B59B6; font-size: 12px; color: #f0f0f0");
+	   console.log("%c ==== Welcome ====","background: #9B59B6; padding:5px; font-size: 12px; color: #ffffff");
+	   console.log("%c Site developed -`ღ´- by Joki","background: #9B59B6; padding:5px; font-size: 12px; color: #ffffff");
+	   console.log("%c > github: https://github.com/myway42","background: #9B59B6; padding:5px; font-size: 12px; color: #ffffff");
+	   console.log("%c > Email: maoway42@gmail.com","background: #9B59B6; padding:5px; font-size: 12px; color: #ffffff");
+	   console.log("%c","background: #9B59B6; font-size: 12px; color: #f0f0f0");
+	}
+
+	hello();
 
 	/*
-	 *移动端
+	 * 移动端
 	 */
 	
 	var wrap = document.querySelector('.wrapper'),
@@ -124,13 +145,12 @@
 		x,y,end_x,end_y;
 	
 	wrap.onclick = function () {
-		if (nav.style.display === 'none') {
-			nav.style.display = 'block';
-		} else {
+		if (nav.style.display === 'block') {
 			nav.style.display = 'none';
+		} else {
+			nav.style.display = 'block';
 		}
 	};
-
 
 	var sliders = {
 		obj: document.querySelector('.demo'),

@@ -2,14 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- ie浏览器优先使用最新版本IE渲染模式,如果有Chrome Frame则可激活chrome渲染模式 -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <!-- 视窗设置:宽度等于设备宽度,比例1:1,最大缩放比1:1,不允许缩放 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Joki</title>
-    <link rel="stylesheet" type="text/css" href="mian.css">
+    <!-- ie9以下可使用html5标签 -->
     <!--[if lt IE 9]>
     <script src="http://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
     <![endif]-->
-    <script type="text/JavaScript" src="http://127.0.0.1:35729/livereload.js"></script>
+    <link rel="stylesheet" type="text/css" href="mian.css">
+    <!-- 获取文档宽度,并对应设置根文字大小,使页面rem可以响应式缩放 -->
     <script>
         (function(){
             var html = document.documentElement;
@@ -20,6 +23,7 @@
 </head>
 <body>
     <div class="container">
+    <!-- 头部导航栏 -->
         <header>
             <div class="wrap">
                 <h1><a href="#intro">joki</a></h1>
@@ -32,12 +36,14 @@
                 </div>
             </div>
         </header>
+        <!-- 开场 -->
         <section class="intro" id="intro">
             <img src="img/intro.jpg">
             <p>欢迎来到<br/>我的主页
                 <a href="#me" class="more">了解更多 &#8675</a>
             </p>
         </section> 
+        <!-- 自我介绍栏 -->
         <section class="about" id="me">
             <h2>About me.</h2>
             <p>你好! 我是Joki, 兴趣使然学习web开发.</p>
@@ -63,6 +69,7 @@
                 <li>photoshop</li>
             </ul>
         </section>
+        <!-- 项目栏 -->
         <section class="projects" id="projects">
             <h2>Projects.</h2>
             <div class="demo">
@@ -112,6 +119,7 @@
                 </div>
             </div>
         </section>
+        <!-- 底部联系广式 -->
         <section class="say" id="hello">
             <div>
                 <h2>Say hello.</h2>
