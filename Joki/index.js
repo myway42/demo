@@ -139,7 +139,7 @@
 		init: function () {
 			self = this;
 			if(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
-				this.obj.addEventListener('touchstart', self.start);
+				this.obj.addEventListener('touchstart', self.start, false);
 			}
 		},
 
@@ -150,8 +150,7 @@
 				y: touch.pageY,
 				time: Date.now()
 			};
-			self.obj.addEventListener('touchmove', self.move);
-			self.obj.addEventListener('touchend', self.end);
+			self.obj.addEventListener('touchmove', self.move, false);
 		},
 
 		move: function (ev) {
@@ -163,18 +162,21 @@
 			if (Math.abs(self.endPos.x) > Math.abs(self.endPos.y)) {
 				ev.preventDefault();
 			}
+			self.obj.addEventListener('touchend', self.end, false);
 		},
 
 		end: function (ev) {
 			var duration = Date.now() - self.startPos.time;
-			if (duration > 10 && Math.abs(self.endPos.x) > Math.abs(self.endPos.y)) {
+			console.log(duration);
+			if (duration > 100 && Math.abs(self.endPos.x) > Math.abs(self.endPos.y)) {
+				ev.preventDefault();
 				if (self.endPos.x > 10) {
 					self.index = 100;
 				} else if (self.endPos.x < -10) {
 					self.index = -100;
 				}
+				slider(self.index);
 			}
-			slider(self.index);
 			self.obj.removeEventListener('touchmove', self.move);
 			self.obj.removeEventListener('touchend', self.end);
 		}
