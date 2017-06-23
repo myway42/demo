@@ -61,7 +61,7 @@
 	// 			var that = this;
 	// 			audio.play();
 	// 			audio.onended = function () {
-	// 				location.href = "http://cn.bing.com/search?q=" + that.innerText;
+	// 				location.href = "https://cn.bing.com/search?q=" + that.innerText;
 	// 			};
 	// 		};
 	// 	}
@@ -84,7 +84,7 @@
 		if (target.nodeName.toLowerCase() === 'li') {
 			audio.play();
 			audio.onended = function () {
-				location.href = "http://cn.bing.com/search?q=" + target.innerText;
+				location.href = "https://cn.bing.com/search?q=" + target.innerText;
 			};
 		}
 	});
@@ -96,7 +96,7 @@
 			e.preventDefault();
 			audio.play();
 			audio.onended = function () {
-				location.href = "http://cn.bing.com/search?q=" + k.value;
+				location.href = "https://cn.bing.com/search?q=" + k.value;
 			};
 		}
 	});
@@ -117,7 +117,7 @@
 	//如果关键词改变,进行异步传输
 		    if (k.value !== oldValue && e.keyCode!==40 && e.keyCode!==38 && e.keyCode!==13) {
 	// 			$.ajax({
-	// 				url: "http://cn.bing.com/qsonhs.aspx?type=cb&q=" + k.value + "&t=" +new Date().getTime(),
+	// 				url: "https://cn.bing.com/qsonhs.aspx?type=cb&q=" + k.value + "&t=" +new Date().getTime(),
 	// 				type: 'GET',
 	// 				dataType: 'jsonp',
 	// 				jsonp:'cb',
@@ -140,7 +140,7 @@
 	 			if (getDOM('xhr')) {	//删除之前动态添加的script
 	 				document.getElementsByTagName('body')[0].removeChild(getDOM('xhr'));
 	 			}
-				var url = "http://cn.bing.com/qsonhs.aspx?type=cb&cb=callback&q=" + k.value + "&t=" +new Date().getTime();
+				var url = "https://cn.bing.com/qsonhs.aspx?type=cb&cb=callback&q=" + k.value + "&t=" +new Date().getTime();
 				var script = document.createElement('script');
 				script.setAttribute('src', url);
 				script.id = 'xhr';
