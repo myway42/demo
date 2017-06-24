@@ -18,7 +18,7 @@
 
 又接着想到focus和blur事件本质上不就相当于鼠标在元素内还是元素外点击,于是把这两个事件都改为click事件,
 
-前者绑定在input上,后者绑定在document上,最后再加上stopPrapodation阻止冒泡,成功解决。
+前者绑定在input上,后者绑定在document上,最后再加上stopPropagation阻止冒泡,成功解决。
 
 ### 关于动态添加元素后无法绑定事件
 通过异步传输取得的数据以li标签的形式动态地添加到html里的ul标签下,形成列表,
