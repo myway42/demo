@@ -44,6 +44,8 @@
 		color1.classList.add('color11');
 		color2.classList.add('color22');
 		color3.classList.add('color33');
+		skill.style.opacity = 0;
+		skill.style.cursor = 'default';
 	};
 //点击项目滑动
 	next.onclick = function () {

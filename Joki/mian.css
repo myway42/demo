@@ -174,11 +174,15 @@ section.about a {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  box-shadow: 2px 2px 5px #000;
+  box-shadow: 2px 2px 6px #666;
   font-size: 18px;
   line-height: 26px;
   text-align: center;
-  background-color: #9E9E9E;
+  color: #000;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
 }
 section.projects {
   padding: 50px 2.92825769rem 50px;
@@ -351,6 +355,10 @@ section.say .email a:hover {
   div.wrap nav {
     margin-top: 30px;
   }
+  section.about a {
+    top: 280px;
+    left: 100px;
+  }
   section.projects .demo {
     height: 29.28257687rem;
   }
@@ -450,6 +458,10 @@ section.say .email a:hover {
   section.about li {
     display: block;
     margin-bottom: 10px;
+  }
+  section.about a {
+    top: 600px;
+    left: -250px;
   }
   section.projects {
     padding: 50px 0 50px;
@@ -575,6 +587,10 @@ section.say .email a:hover {
   section.about li {
     display: block;
     margin-bottom: 10px;
+  }
+  section.about a {
+    top: 620px;
+    left: -285px;
   }
   section.projects {
     padding: 50px 0 50px;
