@@ -1,6 +1,10 @@
 (function () {
 	var header = document.getElementsByTagName('header')[0],
 		more = document.querySelector('.more'),
+		color1 = document.querySelector('.color1'),
+		color2 = document.querySelector('.color2'),
+		color3 = document.querySelector('.color3'),
+		skill = document.getElementById('skill'),
 		rotate = document.querySelector('.rotate'),
 		pre = document.querySelector('.pre'),
 		next = document.querySelector('.next'),
@@ -25,7 +29,7 @@
 		if (ev.target.nodeName.toLowerCase() === 'a') {
 			var arr = ev.target.href.split('#');
 			Scroll(arr[1]);
-			ev.preventDefault ? ev.preventDefault() : ev.returnVaule = false;
+			var prevent = ev.preventDefault ? ev.preventDefault() : ev.returnVaule = false;
 		}
 	};
 //点击链接平滑滚动
@@ -33,7 +37,13 @@
 		var ev = event || window.event;
 		var arr = this.href.split('#');
 		Scroll(arr[1]);
-		ev.preventDefault ? ev.preventDefault() : ev.returnVaule = false;
+		var prevent = ev.preventDefault ? ev.preventDefault() : ev.returnVaule = false;
+	};
+//点击按钮点亮技能树
+	skill.onclick = function () {
+		color1.classList.add('color11');
+		color2.classList.add('color22');
+		color3.classList.add('color33');
 	};
 //点击项目滑动
 	next.onclick = function () {
@@ -144,7 +154,7 @@
 		demo = document.querySelector('.demo'),
 		x,y,end_x,end_y;
 	
-	wrap.onclick = function () {
+	wrap.ontouchstart = function () {
 		if (nav.style.display === 'block') {
 			nav.style.display = 'none';
 		} else {

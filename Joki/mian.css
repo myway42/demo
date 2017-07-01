@@ -105,6 +105,7 @@ section.intro a:hover {
   background-color: #fff;
 }
 section.about {
+  position: relative;
   padding: 50px 3.66032211rem 70px;
 }
 section.about h2 {
@@ -137,8 +138,47 @@ section.about li {
   -o-transition: color 500ms ease-out;
   transition: color 500ms ease-out;
 }
-section.about li:hover {
-  color: #5E74B1;
+section.about .color1 li {
+  -webkit-transition: color 500ms ease-in;
+  -moz-transition: color 500ms ease-in;
+  -o-transition: color 500ms ease-in;
+  transition: color 500ms ease-in;
+}
+section.about .color2 li {
+  -webkit-transition: color 500ms 700ms ease-in;
+  -moz-transition: color 500ms 700ms ease-in;
+  -o-transition: color 500ms 700ms ease-in;
+  transition: color 500ms 700ms ease-in;
+}
+section.about .color3 li {
+  -webkit-transition: color 500ms 1400ms ease-in;
+  -moz-transition: color 500ms 1400ms ease-in;
+  -o-transition: color 500ms 1400ms ease-in;
+  transition: color 500ms 1400ms ease-in;
+}
+section.about .color11 li {
+  color: #FF9800;
+}
+section.about .color22 li {
+  color: #03A9F4;
+}
+section.about .color33 li {
+  color: #F44336;
+}
+section.about a {
+  display: block;
+  position: absolute;
+  top: 300px;
+  left: 500px;
+  margin-left: 500px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px #000;
+  font-size: 18px;
+  line-height: 26px;
+  text-align: center;
+  background-color: #9E9E9E;
 }
 section.projects {
   padding: 50px 2.92825769rem 50px;
