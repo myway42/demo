@@ -133,10 +133,6 @@ section.about li {
   letter-spacing: 1px;
   text-transform: uppercase;
   color: #cfcfcf;
-  -webkit-transition: color 500ms ease-out;
-  -moz-transition: color 500ms ease-out;
-  -o-transition: color 500ms ease-out;
-  transition: color 500ms ease-out;
 }
 section.about .color1 li {
   -webkit-transition: color 500ms ease-in;

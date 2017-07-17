@@ -1,6 +1,3 @@
-// 妙味官网：www.miaov.com
-// 技术交流：bbs.miaov.com
-
 $(function (){
 	// 切换搜索框
 	(function (){
@@ -122,8 +119,6 @@ $(function (){
 			var iTop = $(this).parent().position().top - 30;
 			var iLeft = $(this).parent().position().left + 55;
 			var index = $(this).parent().index()%aSpan.size();
-			
-			// console.log( $(this).parent().index()%aSpan.size() );
 			
 			oPrompt.show().css({ 'left': iLeft, 'top': iTop });
 			oP.text($(this).attr('info'));
