@@ -1,0 +1,4 @@
+page {
+  font-family: 'microsoft yahei';
+  height: 100%;
+}
