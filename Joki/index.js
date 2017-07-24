@@ -108,7 +108,7 @@
 //滑动项目函数
 	function slider(w) {
 		var current = parseInt(rotate.style.left) + w;
-		if (current > 0 || current < -500) {
+		if (current > 0 || current < -600) {
 			return;
 		}
 		rotate.style.left = current + '%';
