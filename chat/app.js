@@ -75,7 +75,7 @@ function parseUser(obj) {
     }
 }
 
-function createWebSocketServer(server, onConnect, onMessage, onClose, onError) {
+function createWebSocketServer(server, onConnection, onMessage, onClose, onError) {
     let wss = new WebSocketServer({
         server: server
     });
@@ -84,7 +84,7 @@ function createWebSocketServer(server, onConnect, onMessage, onClose, onError) {
             client.send(data);
         });
     };
-    onConnect = onConnect || function () {
+    onConnection = onConnection || function () {
         console.log('[WebSocket] connected.');
     };
     onMessage = onMessage || function (msg) {
@@ -96,9 +96,9 @@ function createWebSocketServer(server, onConnect, onMessage, onClose, onError) {
     onError = onError || function (err) {
         console.log('[WebSocket] error: ' + err);
     };
-    wss.on('connect', function (ws) {
+    wss.on('connection', function (ws) {
         let location = url.parse(ws.upgradeReq.url, true);
-        console.log('[WebSocketServer] connect: ' + location.href);
+        console.log('[WebSocketServer] connection: ' + location.href);
         ws.on('message', onMessage);
         ws.on('close', onClose);
         ws.on('error', onError);
@@ -113,7 +113,7 @@ function createWebSocketServer(server, onConnect, onMessage, onClose, onError) {
         }
         ws.user = user;
         ws.wss = wss;
-        onConnect.apply(ws);
+        onConnection.apply(ws);
     });
     console.log('WebSocketServer was attached.');
     return wss;
