@@ -13,7 +13,7 @@ const app = new Koa();
 //注册请求信息
 app.use(async (ctx, next) => {
     console.log(`Process ${ctx.request.method} ${ctx.request.url}...`);
-    await next;
+    await next();
 });
 
 //获取用户信息
@@ -70,7 +70,7 @@ function parseUser(obj) {
             console.log(`User: ${user.name}, ID: ${user.id}`);
             return user;
         } catch (e) {
-            console.log('获取用户失败:'e);
+            console.log('获取用户失败:' + e);
         }
     }
 }
@@ -96,9 +96,9 @@ function createWebSocketServer(server, onConnect, onMessage, onClose, onError) {
     onError = onError || function (err) {
         console.log('[WebSocket] error: ' + err);
     };
-    wss.on('connection', function (ws) {
+    wss.on('connect', function (ws) {
         let location = url.parse(ws.upgradeReq.url, true);
-        console.log('[WebSocketServer] connection: ' + location.href);
+        console.log('[WebSocketServer] connect: ' + location.href);
         ws.on('message', onMessage);
         ws.on('close', onClose);
         ws.on('error', onError);
