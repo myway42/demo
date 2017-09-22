@@ -46,7 +46,6 @@ h1 {
 	float: left;
 	margin-top: 25px;
 	margin-left: 100/@r;
-
 	a {
 		font-weight: 600;
 	    font-size: 30px;
@@ -76,10 +75,8 @@ div.wrapper {
 }
 
 section.intro {
-	padding-top: 137px;
-    padding-bottom: 100px;
+	padding: 137px 0 100px 100px;
     background-color: #FECA30;
-    text-align: center;
 
     img {
     	width: 520/@r;
@@ -87,26 +84,41 @@ section.intro {
     	border-radius: 50px;
     }
 
-    p {
+    div {
     	display: inline-block;
-    	margin-left: 100/@r;
-    	font-size: 100/@r;
-    	line-height: 1.4;
-    	font-weight: 500;
-    	letter-spacing: 3px;
+    	margin-left: 60px;
+    	width: 540/@r;
+    	vertical-align: top;
+    }
+
+    p {
+    	margin-top: 80px;
+    	margin-bottom: 120px;
+    	width: 9ch;
+    	overflow: hidden;
+    	white-space: nowrap;
+    	border-right: .05em solid transparent;
+    	animation: typing 2s steps(9),
+					caret 1s steps(1) infinite;
+    	font-size: 80/@r;
     	color: #fff;
+
+		@keyframes typing {
+	        from { width: 0 }
+	    }
+
+	    @keyframes caret {
+	        50% { border-color:#fff; }
+	    }
     }
 
     a {
-		display: block;
-		margin-left: 80/@r;
-		margin-top: 50px;
-		width: 32%;
+    	display: inline-block;
+    	margin-left: 150px;
 		padding: 10px 20px;
 		border: 1px solid #fff;
 		border-radius: 50px;
 		font-size: 20/@r;
-		letter-spacing: 0;
 		text-align: center;
 
 		&:hover {
@@ -427,6 +439,19 @@ section.say {
 			margin-top: 30px;
 		}
 	}
+	
+	section.intro {
+		padding-left: 40px;
+
+		p {
+			margin-top: 30px;
+			margin-bottom: 50px;
+		}
+
+		a {
+			margin-left: 60px;
+		}
+	}
 
 	section.about {
 		a {
@@ -539,15 +564,14 @@ section.say {
 
 	section.intro {
 		padding-top: 50px;
+		padding-left: 50px;
 
 		img {
 			width: 80%;
 		}
 
 		p {
-			display: block;
-			margin-top: 20px;
-			margin-left: 0;
+			margin: 20px 0 0 20px;
 		}
 
 		a {
@@ -703,15 +727,15 @@ section.say {
 
 	section.intro {
 		padding-top: 40px;
+		padding-left: 40px;
 
 		img {
 			width: 80%;
 		}
 
 		p {
-			display: block;
 			margin-top: 20px;
-			margin-left: 0;
+			margin-bottom: 0;
 		}
 
 		a {
