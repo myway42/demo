@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        @keyframes typing {
+            from { width: 0 }
+        }
+        @keyframes caret {
+            50% { border-color:#000; }
+        }
+        h1 {
+            width: 12ch; /* 文本的宽度 */
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: .05em solid transparent;
+            animation: typing 3s steps(12),
+                       caret 1s steps(1) infinite;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello world!</h1>
+    <script type="text/javascript">
+        $$('h1').forEach(function(h1) {
+            var len = h1.textContent.length, s = h1.style;
+            s.width = len + 'ch';
+            s.animationTimingFunction = "steps("+len+"),steps(1)";
+        });
+    </script>
+</body>
+</html>
