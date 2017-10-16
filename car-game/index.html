@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+  <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+  <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <title>Racing</title>
+</head>
+<body>
+  <div id="reactGame"></div>
+  <script type="text/babel">
+    class GameBoard extends React.Component {
+      constructor(props) {
+        super(props)
+        this.state = {
+          kilometer : 0,
+          heroLoc : 0,
+          enemyLoc: 0,
+          enemyType : 0,
+          enemySpeed : 0,
+          gameState : 0,
+          gameStart :0,
+          gameOver : 0,
+          aniEnd : true,
+          superMode :0,
+          chunge : 0,
+          hasSuper : 0
+        }
+      }
+
+      gameStart = () => {
+        this.setState({
+          kilometer : 0,
+          heroLoc : 0,
+          enemyLoc: 0,
+          enemyType : 0,
+          enemySpeed : 0,
+          gameState : 1,
+          gameStart :1,
+          gameOver : 0,
+          aniEnd : true,
+          superMode : 0,
+          chunge : 0,
+          hasSuper : 0
+        })
+        this.gameTick(true)
+        this.createEnemy()
+      }
+
+      gameTick = (state) => {
+        let crash = 620, heroLoc, enemyLoc, trs, dis, kilometer = 0
+
+        if (state) {
+          this.Tick = setInterval(() => {
+            trs = window.getComputedStyle(this.enemy, null).getPropertyValue("transform")
+            dis = trs.split(",")[5].replace(")","")
+            heroLoc = this.state.heroLoc
+            enemyLoc = this.state.enemyLoc
+            if (dis>crash && dis<(crash+220) && heroLoc === enemyLoc) {
+              if (this.state.superMode === 1) {
+                this.superBuff()
+              } else {
+                this.gameOver()
+              }
+            }
+            kilometer += 1
+            this.setState({kilometer: kilometer})
+            if (kilometer%1000 === 0) {
+              this.superMode()
+            }
+          }, 10)
+        } else {
+          clearInterval(this.Tick)
+        }
+      }
+
+      gameHandle = (e) => {
+        if (this.state.gameState === 1) {
+          switch(e.keyCode) {
+            case 37:
+              this.setState({heroLoc: 0})
+              break
+            case 39:
+              this.setState({heroLoc: 1})
+              break
+            case 32:
+              if (this.state.hasSuper === 1) {
+                this.setState({superMode: 1})
+                this.setState({hasSuper: 0})
+              }
+              break
+          }
+        } else {
+          if (e.keyCode === 13) {
+            this.gameStart()
+          }
+        }
+      }
+
+      mobileSuper = () => {
+        if (this.state.hasSuper === 1) {
+          this.setState({superMode: 1})
+          this.setState({hasSuper: 0})
+        }
+      }
+
+      gameOver = () => {
+        this.setState({gameState: 0})
+        this.setState({gameOver: 1})
+        this.gameTick(false)
+      }
+
+      gameRestart = () => {
+        this.gameStart()
+      }
+
+      superBuff = () => {
+        this.setState({chunge: 1})
+        setTimeout(() => {
+            this.setState({chunge: 0})
+        }, 1000)
+      }
+
+      superMode = () => {
+          this.setState({hasSuper: 1})
+          setTimeout(() => {
+              this.setState({superMode: 0})
+          }, 5000)
+      }
+
+      createEnemy = () => {
+        let enemyLoc, enemyType, enemySpeed
+
+        setInterval(() => {
+          if (this.state.aniEnd && this.state.gameState === 1) {
+            this.setState({aniEnd: false})
+            enemyType = Math.floor(Math.random()*3)
+            enemySpeed = Math.floor(Math.random()*3)
+            enemyLoc = Math.round(Math.random())
+            this.setState({enemyLoc: enemyLoc})
+            this.setState({enemyType: enemyType})
+            this.setState({enemySpeed: enemySpeed})
+          }
+        }, 1000)
+
+        this.enemy.addEventListener("animationend", () => {
+          this.setState({aniEnd: true})
+        })
+      }
+
+      componentDidMount() {
+        window.addEventListener("keydown", this.gameHandle, false)
+        window.addEventListener("devicemotion", (event) => {
+            var eventaccelerationIncludingGravity = event.accelerationIncludingGravity
+            if (this.state.gameState === 1) {
+                if (eventaccelerationIncludingGravity.x < -1) {
+                  this.setState({heroLoc: 0})
+                } else if(eventaccelerationIncludingGravity.x > 1) {
+                  this.setState({heroLoc: 1})
+                }
+            }
+        }, false)
+      }
+
+      render() {
+        let state = this.state
+        let enemyCls = state.gameState === 0 || state.aniEnd ?"enemy":("enemy enemy"+ state.enemyType +" speed" + state.enemySpeed + " loc" + state.enemyLoc)
+        let boardCls
+        if (state.gameOver === 1) {
+            boardCls = "board crashed"
+        } else if (state.superMode === 1) {
+            boardCls = "board superMode"
+        } else {
+            boardCls = "board"
+        }
+
+        return(            
+          <div className={boardCls}>
+            <div className={state.gameStart === 1?"roadbed roadRun":"roadbed"}></div>
+            <div className={state.gameStart === 1?"road roadPlay":"road"}>
+              <div className={state.heroLoc  ===  0 ?"hero left":"hero right"} onClick={this.mobileSuper}><div className="body"></div><span className="light"></span></div>
+              <div className={enemyCls} ref={(node) => this.enemy = node}><div className={state.chunge === 1?"body chunge":"body"}></div></div>
+              <p className="help">方向键←→控制左右</p>
+              <p className={state.hasSuper === 1?"helpsp show":"helpsp"}>空格键开启春哥模式！</p>
+            </div>
+            <span className={state.gameStart === 1?"start hide":"start"} onClick={this.gameStart}></span>
+            <span className="kilo">{state.kilometer}</span>
+            <div className="failbub">
+              <span className="failtext"></span>
+              <span className="retry" onClick={this.gameRestart}></span>
+            </div>
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(<GameBoard />, document.getElementById('reactGame'))
+  </script>
+</body>
+</html>
