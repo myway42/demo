@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
   <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
@@ -48,14 +47,14 @@
           hasSuper : 0
         })
         this.gameTick(true)
-        this.createEnemy()
+        this.createEnemy(true)
       }
 
       gameTick = (state) => {
         let crash = 620, heroLoc, enemyLoc, trs, dis, kilometer = 0
 
         if (state) {
-          this.Tick = setInterval(() => {
+          this.tick = setInterval(() => {
             trs = window.getComputedStyle(this.enemy, null).getPropertyValue("transform")
             dis = trs.split(",")[5].replace(")","")
             heroLoc = this.state.heroLoc
@@ -74,7 +73,7 @@
             }
           }, 10)
         } else {
-          clearInterval(this.Tick)
+          clearInterval(this.tick)
         }
       }
 
@@ -112,6 +111,7 @@
         this.setState({gameState: 0})
         this.setState({gameOver: 1})
         this.gameTick(false)
+        this.createEnemy(false)
       }
 
       gameRestart = () => {
@@ -121,31 +121,35 @@
       superBuff = () => {
         this.setState({chunge: 1})
         setTimeout(() => {
-            this.setState({chunge: 0})
+          this.setState({chunge: 0})
         }, 1000)
       }
 
       superMode = () => {
           this.setState({hasSuper: 1})
           setTimeout(() => {
-              this.setState({superMode: 0})
+            this.setState({superMode: 0})
           }, 5000)
       }
 
-      createEnemy = () => {
+      createEnemy = (state) => {
         let enemyLoc, enemyType, enemySpeed
 
-        setInterval(() => {
-          if (this.state.aniEnd && this.state.gameState === 1) {
-            this.setState({aniEnd: false})
-            enemyType = Math.floor(Math.random()*3)
-            enemySpeed = Math.floor(Math.random()*3)
-            enemyLoc = Math.round(Math.random())
-            this.setState({enemyLoc: enemyLoc})
-            this.setState({enemyType: enemyType})
-            this.setState({enemySpeed: enemySpeed})
-          }
-        }, 1000)
+        if (state) {
+          this.timer = setInterval(() => {
+            if (this.state.aniEnd && this.state.gameState === 1) {
+              this.setState({aniEnd: false})
+              enemyType = Math.floor(Math.random()*3)
+              enemySpeed = Math.floor(Math.random()*3)
+              enemyLoc = Math.round(Math.random())
+              this.setState({enemyLoc: enemyLoc})
+              this.setState({enemyType: enemyType})
+              this.setState({enemySpeed: enemySpeed})
+            }
+          }, 1000)
+        } else {
+          clearInterval(this.timer)
+        }
 
         this.enemy.addEventListener("animationend", () => {
           this.setState({aniEnd: true})
@@ -171,11 +175,11 @@
         let enemyCls = state.gameState === 0 || state.aniEnd ?"enemy":("enemy enemy"+ state.enemyType +" speed" + state.enemySpeed + " loc" + state.enemyLoc)
         let boardCls
         if (state.gameOver === 1) {
-            boardCls = "board crashed"
+          boardCls = "board crashed"
         } else if (state.superMode === 1) {
-            boardCls = "board superMode"
+          boardCls = "board superMode"
         } else {
-            boardCls = "board"
+          boardCls = "board"
         }
 
         return(            
