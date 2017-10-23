@@ -54,7 +54,7 @@ class LayOut extends React.Component {
             <Route exact path='/detail' component={Detail} />
           </Content>
           <Footer style={{ textAlign: 'center' }}>
-            Ant Design ©2016 Created by Ant UED
+            Joki ©2017
           </Footer>
         </Layout>
       </Layout>

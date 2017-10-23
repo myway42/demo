@@ -1,15 +1,17 @@
 import { INPUT_SUBMIT, ITEM_DELETE } from './action'
 
-let num = 0
+let num = -1
+
+// {
+//   name: '王',
+//   ads: '浙江杭州西湖',
+//   phone: '1312312321',
+//   email: 'djsk@11.com',
+//   key: 0
+// }
 
 const initialState = {
-  userInfo: [{
-    name: '王',
-    ads: '浙江杭州西湖',
-    phone: '1312312321',
-    email: 'djsk@11.com',
-    key: 0
-  }]
+  userInfo: []
 }
 
 export default function reducer(state=initialState, action) {
