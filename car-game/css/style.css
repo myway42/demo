@@ -163,13 +163,13 @@ body{
 }
 
 .enemy.speed0{
-	animation:speed 1s linear;
+	animation:speed 500ms linear;
 }
 .enemy.speed1{
-	animation:speed 2s linear;
+	animation:speed 700ms linear;
 }
 .enemy.speed2{
-	animation:speed 2.5s linear;
+	animation:speed 1s linear;
 }
 @keyframes speed{
 	100%{ transform:translateY(1000px);}
