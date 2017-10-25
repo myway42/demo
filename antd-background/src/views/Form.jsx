@@ -2,6 +2,10 @@ import React from 'react';
 import { Layout, Breadcrumb } from 'antd';
 import FormPage from '../components/FormPage';
 
+/**
+ * 表单页: 输入保存数据信息, 可进行简单的验证
+ */
+
 const { Content } = Layout;
 
 const Form = () => (

@@ -3,6 +3,11 @@ import { Layout, Breadcrumb } from 'antd';
 import DetailPage from '../components/DetailPage';
 import { Link } from 'react-router-dom';
 
+/**
+ * 详细页: 通过路由传参获取具体个人信息并展示
+ * 注意点: 路由的location需要通过属性传递给子组件,否则子组件无法获取
+ */
+
 const { Content } = Layout;
 
 const Detail = (props) => (

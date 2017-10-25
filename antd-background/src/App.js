@@ -6,6 +6,10 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store'
 
+/**
+ * 主入口
+ */
+
 const App = () => (
   <Provider store={store}>
     <BrowserRouter>

@@ -2,6 +2,10 @@ import React from 'react';
 import { Layout, Breadcrumb } from 'antd';
 import IndexPage from '../components/IndexPage';
 
+/**
+ * 主页: 以便签形式展示数据信息
+ */
+
 const { Content } = Layout;
 
 const Index = () => (

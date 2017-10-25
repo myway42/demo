@@ -3,10 +3,6 @@ import { Table, Popconfirm } from 'antd';
 import { connect } from 'react-redux'
 import { itemDelete } from '../redux/action'
 
-
-
-
-
 const TablePage = (props) => {
 
   const onItemDelete = (index) => {

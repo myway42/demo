@@ -2,6 +2,10 @@ import React from 'react';
 import { Layout, Breadcrumb } from 'antd';
 import TablePage from '../components/TablePage';
 
+/**
+ * 表格页: 以表格形式展示数据,可对其中各项进行排序,可按照区域进行筛选,可以删除数据
+ */
+
 const { Content } = Layout;
 
 const Table = () => (

@@ -15,16 +15,27 @@
     class GameBoard extends React.Component {
       constructor(props) {
         super(props)
+        // 初始状态
         this.state = {
+          // 运行公里数
           kilometer : 0,
+          // 我方车轨道
           heroLoc : 0,
+          // 地方车轨道
           enemyLoc: 0,
+          // 地方车款式
           enemyType : 0,
+          // 地方车速
           enemySpeed : 0,
+          // 游戏状态
           gameState : 0,
+          // 游戏开始状态
           gameStart :0,
+          // 游戏结束状态
           gameOver : 0,
+          // 动画是否结束
           aniEnd : true,
+          // 无敌模式
           superMode :0,
           chunge : 0,
           hasSuper : 0
@@ -49,7 +60,7 @@
         this.gameTick(true)
         this.createEnemy(true)
       }
-
+      
       gameTick = (state) => {
         let crash = 620, heroLoc, enemyLoc, trs, dis, kilometer = 0
 

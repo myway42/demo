@@ -6,6 +6,10 @@ import Detail from '../views/Detail';
 import Table from '../views/Table';
 import Form from '../views/Form';
 
+/**
+ * 布局: 侧边导航栏 头部 功能区 底部
+ */
+
 const { Header, Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 
